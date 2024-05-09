@@ -685,13 +685,13 @@ class ORPOTrainer(Trainer):
 
         chosen_outputs = model(
             concatenated_batch["concatenated_input_ids"][0],
-            attention_mask=concatenated_batch["concatenated_attention_mask"],
+            attention_mask=concatenated_batch["concatenated_attention_mask"][0],
             use_cache=False,
             **model_kwargs,
         )
         rejected_outputs = model(
             concatenated_batch["concatenated_input_ids"][1],
-            attention_mask=concatenated_batch["concatenated_attention_mask"],
+            attention_mask=concatenated_batch["concatenated_attention_mask"][1],
             use_cache=False,
             **model_kwargs,
         )
